@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Calculadora IMC - JavaScript</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="elegant-color">
+
+  <!-- Start your project here-->
+  <header class="indigo">
+    <h3 class="text-white text-center">Usando Javascript com API Flask</h3>
+  </header><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <form id="form">
+          <h4 class="text-white">Dados pessoais</h4>
+          <div class="md-form form-lg">
+            <input type="text" name="nome" class="form-control form-control-lg">
+            <label for="nome">Digite seu nome</label>
+          </div>
+          <div class="md-form form-lg">
+            <input type="text" name="peso" class="form-control form-control-lg">
+            <label for="peso">Digite seu peso</label>
+          </div>
+          <div class="md-form form-lg">
+            <input type="text" name="altura" class="form-control form-control-lg">
+            <label for="altura">Digite sua altura</label>
+          </div>
+          <a type="button" name="calcular" class="btn btn-indigo btn-block" onclick="calcularImc();">Calcular</a>
+        </form>
+      </div>
+
+      <div class="col-md-5">
+        <table class="table text-white">
+          <thead>
+            <tr>
+              <th scope="col">NOME</th>
+              <th scope="col">IMC</th>
+              <th scope="col">CLASSIFICAÇÃO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="tbl_nome"></td>
+              <td id="tbl_imc"></td>
+              <td id="tbl_classificacao"></td>
+            </tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+  <p id="p" class="text-white"></p>
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+
+     
+
+    function calcularImc() {
+
+      var form = document.getElementById("form");
+      var peso = form.peso.value;
+      var altura = form.altura.value;
+      var tbl_nome = document.getElementById("tbl_nome");
+      var tbl_imc = document.getElementById("tbl_imc");
+      var tbl_classificacao = document.getElementById("tbl_classificacao")
+      var imc = peso / (altura * altura);
+
+      tbl_nome.innerHTML = form.nome.value;
+      tbl_imc.innerHTML = imc.toFixed(2);
+      tbl_classificacao.innerHTML = imc <= 25 ? "peso normal" : "fora do peso ideal";
+    }
+
+  </script>
+
+</body>
+
+</html>
